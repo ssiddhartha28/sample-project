@@ -4,7 +4,7 @@ on:
 
 jobs:
   trigger_pipeline:
-    runs-on: dte-56647-linux-frf-small # or ubuntu-latest if using GitHub-hosted
+    runs-on: ubuntu-latest # or ubuntu-latest if using GitHub-hosted
     steps:
       - name: Create Adobe Pipeline Execution
         uses: adobe/aio-cloudmanager-create-execution-action@v1.2.0
