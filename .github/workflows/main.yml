@@ -1,0 +1,19 @@
+name: TriggerAdobePipeline
+on:
+  workflow_dispatch:
+
+jobs:
+  trigger_pipeline:
+    runs-on: dte-56647-linux-frf-small # or ubuntu-latest if using GitHub-hosted
+    steps:
+      - name: Create Adobe Pipeline Execution
+        uses: adobe/aio-cloudmanager-create-execution-action@v1.2.0
+        with:
+          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+          IMSORGID: ${{ secrets.CM_ORG_ID }}
+          PIPELINEID: ${{ secrets.CM_PIPELINE_ID }}
+          PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
+          TECHNICALACCOUNTID: ${{ secrets.CM_TA_ID }}
+          TECHNICALACCOUNTEMAIL: ${{ secrets.CM_TA_EMAIL }}
+          OAUTHENABLED: "true"
